@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css">
-    <title>nouveau signalements</title>
+    <title>CESO</title>
     <style>
          body {
             font-family: 'Times New Roman', Times, serif;
@@ -53,52 +53,10 @@
         .sidebar .dropdown-item:hover {
             background-color: #007bff;
         }
-
-        /* Style pour le titre */
-        h1 {
-            text-align: center;
-            margin-bottom: 20px;
-            margin-top: 20px;
-            color: #007bff;
-        }
-
-        /* Style pour le conteneur du tableau */
-        .table-container {
-            padding: 20px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Style pour le tableau */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        thead {
-            background-color: #343a40;
-            color: white;
-        }
-
-        /* Style des cellules */
-        th, td {
-            padding: 12px;
-            text-align: left;
-        }
-
-        /* Style pour les actions */
-        .btn-action {
-            margin-right: 5px;
-        }
-
-        /* Pagination styles */
-        .pagination {
-            justify-content: center;
-        }
     </style>
 </head>
 <body>
+
 <!-- Navbar supérieure -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <a class="navbar-brand" href="#">Logo</a>
@@ -128,21 +86,21 @@
             Signalement
         </a>
         <div class="dropdown-menu" aria-labelledby="signalementDropdown">
-            <a class="dropdown-item" href="nouveau.html" active>Nouveau</a>
-            <a class="dropdown-item" href="interface3.3.html">Tous les signalements</a>
-            <a class="dropdown-item" href="encours.html">En cours de traitement</a>
-            <a class="dropdown-item" href="terminer.html">Terminé</a>
-            <a class="dropdown-item" href="refuser.html">Refusé</a>
+            <a class="dropdown-item" href="nouveau.php">Nouveau</a>
+            <a class="dropdown-item" href="interface3.3.php">Tous les signalements</a>
+            <a class="dropdown-item" href="encours.php">En cours de traitement</a>
+            <a class="dropdown-item" href="terminer.php">Terminé</a>
+            <a class="dropdown-item" href="refuser.php">Refusé</a>
         </div>
     </div>
-    
+
     <!-- Liste déroulante Travailleurs sociaux -->
     <div class="dropdown">
         <a class="dropdown-toggle" href="#" id="travailleursDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Travailleurs sociaux
         </a>
         <div class="dropdown-menu" aria-labelledby="travailleursDropdown">
-            <a class="dropdown-item" href="interface3.2.html">Tous les travailleurs sociaux</a>
+            <a class="dropdown-item" href="interface3.2.php">Tous les travailleurs sociaux</a>
         </div>
     </div>
 
@@ -150,61 +108,14 @@
     <a href="interface3.1.html">Statistique</a>
 </div>
 
-<!-- Contenu principal -->
+<!-- Contenu de la page -->
 <div class="content">
-    <h1> signalements Terminer</h1>
-
-    <!-- Conteneur du tableau des signalements -->
-    <div class="table-container">
-        <table class="table table-bordered table-striped">
-            <thead class="thead-dark">
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Nom du formulaire</th>
-                    <th scope="col">Date</th>
-                    <th scope="col">Heure</th>
-                    <th scope="col">Action</th>
-                </tr>
-            </thead>
-            <tbody id="table-body">
-                <!-- Les lignes seront insérées ici via JavaScript -->
-            </tbody>
-        </table>
-    </div>
+    <h2>Contenu principal</h2>
+    <p>Voici le contenu de la page. La barre latérale à gauche contient des listes déroulantes pour les signalements et les travailleurs sociaux.</p>
 </div>
-<!-- Script JavaScript pour ajouter dynamiquement des données dans le tableau -->
-<script>
-    // Sélection du corps de tableau
-    const tableBody = document.getElementById('table-body');
 
-    
-
-    // Fonction pour charger les données du tableau
-    function loadTableData(signalements) {
-        signalements.forEach(signalement => {
-            let row = document.createElement('tr');
-
-            row.innerHTML = `
-                <td>${signalement.id}</td>
-                <td>${signalement.nomFormulaire}</td>
-                <td>${signalement.date}</td>
-                <td>${signalement.heure}</td>
-                <td>
-                    <button class="btn btn-info btn-sm btn-action">Voir</button>
-                    <button class="btn btn-danger btn-sm btn-action">Supprimer</button>
-                </td>
-            `;
-            tableBody.appendChild(row);
-        });
-    }
-
-    // Charger les données de signalements au chargement de la page
-    loadTableData(signalements);
-</script>
-
-<!-- Script Bootstrap -->
+<!-- Scripts Bootstrap -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
-
 </body>
 </html>

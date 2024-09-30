@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css">
-    <title>Nouveau Signalements</title>
+    <title>Statistiques</title>
     <style>
         /* Style pour la barre latérale gauche */
         .sidebar {
@@ -128,22 +128,22 @@
         <div class="dropdown">
             <a class="dropdown-toggle" href="#" id="signalementDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Signalement</a>
             <div class="dropdown-menu" aria-labelledby="signalementDropdown">
-                <a class="dropdown-item" href="nouveau.html">Nouveau</a>
-                <a class="dropdown-item" href="interface3.3.html">Tous les signalements</a>
-                <a class="dropdown-item" href="encours.html">En cours</a>
-                <a class="dropdown-item" href="terminer.html">Terminé</a>
-                <a class="dropdown-item" href="refuser.html">Refusé</a>
+                <a class="dropdown-item" href="nouveau.php">Nouveau</a>
+                <a class="dropdown-item" href="interface3.3.php">Tous les signalements</a>
+                <a class="dropdown-item" href="encours.php">En cours</a>
+                <a class="dropdown-item" href="terminer.php">Terminé</a>
+                <a class="dropdown-item" href="refuser.php">Refusé</a>
             </div>
         </div>
         
         <div class="dropdown">
             <a class="dropdown-toggle" href="#" id="travailleursDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Travailleurs sociaux</a>
             <div class="dropdown-menu" aria-labelledby="travailleursDropdown">
-                <a class="dropdown-item" href="interface3.2.html">Tous les travailleurs sociaux</a>
+                <a class="dropdown-item" href="interface3.2.php">Tous les travailleurs sociaux</a>
             </div>
         </div>
 
-        <a href="interface3.1.html">Statistiques</a>
+        <a href="interface3.1.php">Statistiques</a>
     </div>
 
     <div class="content">

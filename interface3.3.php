@@ -4,11 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css">
-    <title>nouveau signalements</title>
+    <title>Tous les signalements</title>
     <style>
-         body {
-            font-family: 'Times New Roman', Times, serif;
-        }
         /* Style pour la barre latérale gauche */
         .sidebar {
             height: 100vh; /* La hauteur de la fenêtre */
@@ -18,6 +15,9 @@
             left: 0;
             background-color: #343a40;
             padding-top: 20px;
+        }
+        body {
+            font-family: 'Times New Roman', Times, serif;
         }
         .sidebar a, .sidebar .dropdown-toggle {
             padding: 10px 15px;
@@ -128,8 +128,8 @@
             Signalement
         </a>
         <div class="dropdown-menu" aria-labelledby="signalementDropdown">
-            <a class="dropdown-item" href="nouveau.html" active>Nouveau</a>
-            <a class="dropdown-item" href="interface3.3.html">Tous les signalements</a>
+            <a class="dropdown-item" href="nouveau.php" active>Nouveau</a>
+            <a class="dropdown-item" href="interface3.3.php">Tous les signalements</a>
             <a class="dropdown-item" href="encours.html">En cours de traitement</a>
             <a class="dropdown-item" href="terminer.html">Terminé</a>
             <a class="dropdown-item" href="refuser.html">Refusé</a>
@@ -142,7 +142,7 @@
             Travailleurs sociaux
         </a>
         <div class="dropdown-menu" aria-labelledby="travailleursDropdown">
-            <a class="dropdown-item" href="interface3.2.html">Tous les travailleurs sociaux</a>
+            <a class="dropdown-item" href="interface3.2.php">Tous les travailleurs sociaux</a>
         </div>
     </div>
 
@@ -152,7 +152,7 @@
 
 <!-- Contenu principal -->
 <div class="content">
-    <h1>signalements Refuser</h1>
+    <h1>Tous les signalements</h1>
 
     <!-- Conteneur du tableau des signalements -->
     <div class="table-container">
@@ -160,14 +160,35 @@
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">ID</th>
+                    <th scope="col">status</th>
                     <th scope="col">Nom du formulaire</th>
                     <th scope="col">Date</th>
-                    <th scope="col">Heure</th>
+                    <th scope="col">sexe</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody id="table-body">
-                <!-- Les lignes seront insérées ici via JavaScript -->
+            <?php
+            include_once "db.php";
+            $req = mysqli_query($conn, "SELECT * FROM signalement");
+            if (mysqli_num_rows($req) == 0) {
+                echo "<tr><td colspan='7' class='text-center'>Aucun signalement</td></tr>";
+            } else {
+                while ($row = mysqli_fetch_assoc($req)) {
+                    // Récupérer les travailleurs sociaux
+                    $travailleursReq = mysqli_query($conn, "SELECT nom FROM utilisateur WHERE niveau='travailleur social'");
+                    ?>
+                    <tr>
+                        <td><?=$row['id']?></td>
+                        <td><?=$row['nom_victime']?></td>
+                        <td><?=$row['nom_victime']?></td>
+                        <td><?=$row['date_heure']?></td>
+                        <td><?=$row['sexe']?></td>
+                        <td><a href="interface5.php?id=<?=$row['id']?>">Detail</td>
+                        <?php
+                                        }
+                                    }
+                                    ?>
             </tbody>
         </table>
     </div>

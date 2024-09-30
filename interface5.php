@@ -57,10 +57,11 @@
           </tr>
         </thead>
         <tbody>
-
+ 
             <?php
             include_once "db.php";
-            $req = mysqli_query($conn, "SELECT * FROM signalement");
+            $id=$_GET['id'];
+            $req = mysqli_query($conn, "SELECT * FROM signalement WHERE id = $id");
             if (mysqli_num_rows($req) == 0) {
                 echo "<tr><td colspan='7' class='text-center'>Aucun signalement</td></tr>";
             } else {
@@ -69,7 +70,7 @@
                     $travailleursReq = mysqli_query($conn, "SELECT nom FROM utilisateur WHERE niveau='travailleur social'");
                     ?>
                     <tr>
-                        <td><?=$row['id_signaleur']?></td>
+                        <td><?=$row['id']?></td>
                         <td><?=$row['nom_victime']?></td>
                         <td><?=$row['age_apparent']?></td>
                         <td><?=$row['date_heure']?></td>
