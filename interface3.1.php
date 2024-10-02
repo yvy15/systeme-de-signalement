@@ -111,13 +111,13 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Accueil <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="interface3.1.php">Accueil <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">A Propos</a>
+                    <a class="nav-link" href="a propos.php">A Propos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contacts</a>
+                    <a class="nav-link" href="contact.php">Contacts</a>
                 </li>
             </ul>
         </div>

@@ -108,13 +108,13 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Accueil <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="interface3.3.php">Accueil <span class="sr-only">(current)</span></a>
             </li>
             <li class="navbar-nav">
-                <a class="nav-link" href="#">A Propos</a>
+                <a class="nav-link" href="a propos.php">A Propos</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Contacts</a>
+                <a class="nav-link" href="contact.php">Contacts</a>
             </li>
         </ul>
     </div>
@@ -130,9 +130,9 @@
         <div class="dropdown-menu" aria-labelledby="signalementDropdown">
             <a class="dropdown-item" href="nouveau.php" active>Nouveau</a>
             <a class="dropdown-item" href="interface3.3.php">Tous les signalements</a>
-            <a class="dropdown-item" href="encours.html">En cours de traitement</a>
-            <a class="dropdown-item" href="terminer.html">Terminé</a>
-            <a class="dropdown-item" href="refuser.html">Refusé</a>
+            <a class="dropdown-item" href="encours.php">En cours de traitement</a>
+            <a class="dropdown-item" href="terminer.php">Terminé</a>
+            <a class="dropdown-item" href="refuser.php">Refusé</a>
         </div>
     </div>
     
@@ -147,7 +147,7 @@
     </div>
 
     <!-- Statistiques -->
-    <a href="interface3.1.html">Statistique</a>
+    <a href="interface3.1.php">Statistique</a>
 </div>
 
 <!-- Contenu principal -->

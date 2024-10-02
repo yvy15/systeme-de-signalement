@@ -6,7 +6,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css">
     <title>nouveau signalements</title>
     <style>
-         body {
+
+body {
             font-family: 'Times New Roman', Times, serif;
         }
         /* Style pour la barre latérale gauche */
@@ -108,13 +109,16 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Accueil <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="nouveau.ts.php">Accueil <span class="sr-only">(current)</span></a>
             </li>
             <li class="navbar-nav">
-                <a class="nav-link" href="#">A Propos</a>
+                <a class="nav-link" href="a prpos.php">A Propos</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Contacts</a>
+                <a class="nav-link" href="contact.php">Contacts</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="interface2.php">Signaler un cas</a>
             </li>
         </ul>
     </div>
@@ -123,16 +127,16 @@
 <!-- Sidebar à gauche -->
 <div class="sidebar">
     <!-- Liens directs sans listes déroulantes -->
-    <a href="nouveau.ts.html">Nouveau Signalement</a>
-    <a href="interface4.1.html">Tous les signalements</a>
-    <a href="encours.ts.html">En cours de traitement</a>
-    <a href="terminer.ts.html">Terminé</a>
-    <a href="refuser.ts.html">Refusé</a>
+    <a href="nouveau.ts.php">Nouveau Signalement</a>
+    <a href="interface4.1.php">Tous les signalements</a>
+    <a href="encours.ts.php">En cours de traitement</a>
+    <a href="terminer.ts.php">Terminé</a>
+    <a href="refuser.ts.php">Refusé</a>
 </div>
 
 <!-- Contenu principal -->
 <div class="content">
-    <h1>signalements Refuser</h1>
+    <h1>Nouveaux signalements</h1>
 
     <!-- Conteneur du tableau des signalements -->
     <div class="table-container">

@@ -66,13 +66,13 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Accueil <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="interface3.php">Accueil <span class="sr-only">(current)</span></a>
             </li>
             <li class="navbar-nav">
-                <a class="nav-link" href="#">A Propos</a>
+                <a class="nav-link" href="a propos.php">A Propos</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Contacts</a>
+                <a class="nav-link" href="contact.php">Contacts</a>
             </li>
         </ul>
     </div>
@@ -105,13 +105,13 @@
     </div>
 
     <!-- Statistiques -->
-    <a href="interface3.1.html">Statistique</a>
+    <a href="interface3.1.php">Statistique</a>
 </div>
 
 <!-- Contenu de la page -->
 <div class="content">
     <h2>Contenu principal</h2>
-    <p>Voici le contenu de la page. La barre latérale à gauche contient des listes déroulantes pour les signalements et les travailleurs sociaux.</p>
+    <p>BIENVENUE SUR VOTRE INTERFACE
 </div>
 
 <!-- Scripts Bootstrap -->
