@@ -76,6 +76,10 @@
             border-collapse: collapse;
         }
 
+        .table-scroll {
+    max-height: 60vh; /* Ajustez selon vos besoins */
+    overflow-y: auto; /* Activer le défilement vertical */
+}
         thead {
             background-color: #343a40;
             color: white;
@@ -101,7 +105,7 @@
 <body>
 <!-- Navbar supérieure -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <a class="navbar-brand" href="#">Logo</a>
+    <a class="navbar-brand" href="#">MINAS</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -140,20 +144,67 @@
 
     <!-- Conteneur du tableau des signalements -->
     <div class="table-container">
+    <div class="table-scroll">
         <table class="table table-bordered table-striped">
             <thead class="thead-dark">
-                <th scope="col">ID_travailleur</th>
                 <th scope="col">nom_formulaire</th>
                 <th scope="col">status</th>
                 <th scope="col">Date_affecter</th>
-                <th scope="col">Heure</th>
                 <th scope="col">action</th>
             </tr>
             </thead>
             <tbody id="table-body">
-                <!-- Les lignes seront insérées ici via JavaScript -->
-            </tbody>
+            <?php
+// Vérifier si le paramètre 'nom' est défini dans l'URL
+if (isset($_GET['nom'])) {
+    // Décoder la valeur du paramètre 'nom'
+    $nom_utilisateur = urldecode($_GET['nom']);
+
+    // Inclure la connexion à la base de données
+    include_once "db.php";
+
+    // Préparer une requête SQL sécurisée pour éviter les injections SQL
+    $sql = "SELECT * FROM affectation WHERE nom_travailleur = ?";
+    $stmt = mysqli_prepare($conn, $sql);
+
+    if ($stmt) {
+        // Lier le paramètre 'nom_travailleur' à la requête préparée
+        mysqli_stmt_bind_param($stmt, 's', $nom_utilisateur);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+
+        // Vérifier s'il y a des résultats
+        if (mysqli_num_rows($result) == 0) {
+            echo "<tr><td colspan='7' class='text-center'>Aucun signalement</td></tr>";
+        } else {
+            // Boucle pour afficher chaque résultat
+            while ($row = mysqli_fetch_assoc($result)) {
+                ?>
+                <tr>
+                <td><?= htmlspecialchars($row['nom_victime']) ?></td>
+
+                    <td><?= htmlspecialchars($row['statut']) ?></td>
+                    <td><?= htmlspecialchars($row['date_affecter']) ?></td>
+                    
+                    <td><a href="detail.ts.php?date_affecter=<?= urlencode($row['date_affecter']) ?>">Detail</a></td>
+                </tr>
+                <?php
+            }
+        }
+        // Libérer le résultat et fermer la requête préparée
+        mysqli_free_result($result);
+        mysqli_stmt_close($stmt);
+    } else {
+        // Gérer les erreurs de la requête
+        echo "Erreur dans la préparation de la requête : " . mysqli_error($conn);
+    }
+} else {
+    echo "Nom d'utilisateur non spécifié.";
+}
+?>
+
         </table>
+    </div>
     </div>
 </form>
 </div>

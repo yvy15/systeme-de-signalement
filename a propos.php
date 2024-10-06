@@ -49,16 +49,16 @@
     <div class="container-fluid position-relative p-0">
         <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
             <a href="#" class="navbar-brand p-0">
-                <h1 class="m-0"><i class="fa fa-user-tie me-2"></i>EVAS</h1>
+                <h1 class="m-0"><i class=""></i>EVAS</h1>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="fa fa-bars"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto py-0">
-                    <a href="interface1.html" class="nav-item nav-link">Accueil</a>
-                    <a href="a propos.html" class="nav-item nav-link active">A propos</a>
-                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                    <a href="index.php" class="nav-item nav-link">Accueil</a>
+                    <a href="a propos.php" class="nav-item nav-link active">A propos  <span class="sr-only">(current) </span></a>
+                    <a href="contact.php" class="nav-item nav-link">Contact</a>
                 </div>
             </div>
         </nav>
@@ -163,26 +163,25 @@
                             </div>
                             <div class="d-flex mb-2">
                                 <i class="bi bi-envelope-open text-primary me-2"></i>
-                                <p class="mb-0">minas@gmail.com</p>
+                                <p class="mb-0">info@minas.cm</p>
                             </div>
                             <div class="d-flex mb-2">
                                 <i class="bi bi-telephone text-primary me-2"></i>
-                                <p class="mb-0">+237 345 67890</p>
+                                <p class="mb-0"></p>
                             </div>
                             <div class="d-flex mt-4">
-                                <a class="btn btn-primary btn-square me-2" href="#"><i class="fab fa-twitter fw-normal"></i></a>
-                                <a class="btn btn-primary btn-square me-2" href="#"><i class="fab fa-facebook-f fw-normal"></i></a>
-                                <a class="btn btn-primary btn-square me-2" href="#"><i class="fab fa-linkedin-in fw-normal"></i></a>
-                                <a class="btn btn-primary btn-square" href="#"><i class="fab fa-instagram fw-normal"></i></a>
+                                <a class="btn btn-primary btn-square me-2" href="https://x.com/minasofficiel"><i class="fab fa-twitter fw-normal"></i></a>
+                                <a class="btn btn-primary btn-square me-2" href="https://www.facebook.com/minasofficiel"><i class="fab fa-facebook-f fw-normal"></i></a>
+                                <a class="btn btn-primary btn-square me-2" href="https://www.linkedin.com/company/minist%C3%A8re-des-affaires-sociales-minas"><i class="fab fa-linkedin-in fw-normal"></i></a>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
                             <h3 class="text-light mb-0">Nos Pages</h3>
                             <div class="link-animated d-flex flex-column justify-content-start">
-                                <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Accueil</a>
-                                <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>A Propos</a>
-                                <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Signaler</a>
-                                <a class="text-light" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Nous contacter</a>
+                                <a class="text-light mb-2" href="index.php"><i class="bi bi-arrow-right text-primary me-2"></i>Accueil</a>
+                                <a class="text-light mb-2" href="a propos.php"><i class="bi bi-arrow-right text-primary me-2"></i>A Propos</a>
+                                <a class="text-light mb-2" href="index.php"><i class="bi bi-arrow-right text-primary me-2"></i>Signaler</a>
+                                <a class="text-light" href="contacter.php"><i class="bi bi-arrow-right text-primary me-2"></i>Nous contacter</a>
                             </div>
                         </div>
                     </div>

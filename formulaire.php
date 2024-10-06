@@ -59,10 +59,16 @@ try {
     $stmtSevices = $conn->prepare("INSERT INTO sevices_cas (sevices_physiques1, sevices_physiques2, sevices_physiques3, sevices_verbaux1, sevices_verbaux2, sevices_verbaux3, sevices_psychologique1, sevices_psychologique2, sevices_psychologique3, autres, cas_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
     $stmtSevices->bind_param("ssssssssssi", $pservice1, $pservice2, $pservice3, $vservice1, $vservice2, $vservice3, $servicep1, $servicep2, $servicep3, $autre, $id_signaleur);
     $stmtSevices->execute();
-
+    //redirection avec message de success
+    header("Location:index.php?message=success");
+    exit();
+     
     echo "Les informations ont été enregistrées avec succès.";
+
 } catch (Exception $e) {
-    echo "Erreur : " . $e->getMessage();
+    //redirection avec message d'erreur
+    header("Location:index.php?message=error");
+    exit();
 }
 
 // Fermeture de la connexion

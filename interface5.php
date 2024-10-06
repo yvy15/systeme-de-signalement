@@ -42,6 +42,22 @@
     </style>
 </head>
 <body>
+<?php
+$message = '';  // Initialisation du message
+
+if (isset($_GET['message'])) {
+    if ($_GET['message'] == 'success') {
+        $message = '<div class="alert alert-success">La note a été ajoutée avec succès.</div>';
+        echo $message;
+    } elseif ($_GET['message'] == 'error') {
+        $message = '<div class="alert alert-danger">Erreur lors de l\'ajout de la note.</div>';
+        echo $message;
+    }
+}
+?>
+<div>
+    <?= $message; ?>
+</div>
 
     <h1 class="text-center mb-4">Fiche de Signalement</h1>
     <table class="table table-striped table-bordered">
@@ -97,10 +113,11 @@
                             </form>
                             <!-- Ajouter un champ pour la note -->
                             <form action="ajouter_note.php" method="POST" class="note-input">
-                                <input type="hidden" name="id_signaleur" value="<?=$row['id']?>">
-                                <input type="text" name="note" placeholder="Ajouter une note" class="form-control" required>
-                                <button type="submit" class="btn btn-primary mt-2">Ajouter Note</button>
-                            </form>
+    <input type="hidden" name="id_signaleur" value="<?= htmlspecialchars($row['id']); ?>">
+    <input type="text" name="note" placeholder="Ajouter une note" class="form-control" required>
+    <button type="submit" class="btn btn-primary mt-2">Changer de statut</button>
+</form>
+
                         </td>
                     </tr>
                     <?php

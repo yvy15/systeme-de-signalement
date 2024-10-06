@@ -87,6 +87,10 @@
             text-align: left;
         }
 
+        .table-scroll {
+    max-height: 60vh; /* Ajustez selon vos besoins */
+    overflow-y: auto; /* Activer le défilement vertical */
+        }
         /* Style pour les actions */
         .btn-action {
             margin-right: 5px;
@@ -101,7 +105,7 @@
 <body>
 <!-- Navbar supérieure -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <a class="navbar-brand" href="#">Logo</a>
+    <a class="navbar-brand" href="#">MINAS</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -156,6 +160,7 @@
 
     <!-- Conteneur du tableau des signalements -->
     <div class="table-container">
+        <div class="table-scroll">
         <table class="table table-bordered table-striped">
             <thead class="thead-dark">
                 <tr>
@@ -171,7 +176,7 @@
             <tbody id="table-body">
             <?php
             include_once "db.php";
-            $req = mysqli_query($conn, "SELECT * FROM signalement");
+            $req = mysqli_query($conn, "SELECT * FROM signalement WHERE statut ='en cours'");
             if (mysqli_num_rows($req) == 0) {
                 echo "<tr><td colspan='7' class='text-center'>Aucun signalement</td></tr>";
             } else {
@@ -191,6 +196,7 @@
                                     ?>
             </tbody>
         </table>
+        </div>
     </div>
 </div>
 <!-- Script JavaScript pour ajouter dynamiquement des données dans le tableau -->

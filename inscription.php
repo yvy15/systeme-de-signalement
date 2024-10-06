@@ -1,57 +1,55 @@
-<?php
-include_once "db.php";
-// Vérifie si le formulaire a été soumis
-if ($_SERVER["REQUEST_METHOD"] =="POST"){
-
-    // Récupérer les valeurs du formulaire et les sécuriser
-    $nom = $_POST['nom'];
-    $prenom =$_POST['prenom']; 
-    $email = $_POST['email'];
-    $mdp =$_POST['password'];
-    $niveau =$_POST['niveau'];
-    $cmdp =$_POST['confirmer-password'];
-
- // Vérification du compte
- $stmt =$conn->prepare("SELECT email FROM utilisateur WHERE email = ?");
- $stmt->bind_param("s", $email);
- $stmt->execute();
- $result = $stmt->get_result();
-
-    // Vérifier si les deux mots de passe correspondent
-    if ($mdp !== $cmdp) {
-        echo "Les mots de passe ne correspondent pas. Veuillez réessayer.";
-        exit;  // Arrêter l'exécution si les mots de passe ne correspondent pas
-    }
-    else {
-        if ($result->num_rows <= 0) {
-            // Insertion dans la base de données
-            $stmt = $conn->prepare("INSERT INTO utilisateur (nom, prenom, niveau, email, mdp) VALUES (?, ?, ?, ?, ?)");
-            $stmt->bind_param("sssss", $nom, $prenom, $niveau, $email, $mdp);
-            
-            if ($stmt->execute()) {
-                if($niveau=='CESO'){
-                    header("Loation:interface3.html");
-                }
-                elseif($niveau=='travailleur social'){
-                    header("Location:interface4.html");
-                }
-                elseif($niveau=='Delegue departemental'){
-                    header("Location:interface3.html");
-                }
-                elseif($niveau=='Delegue regional'){
-                    header("Location:interface3.html");
-                }
-            } else {
-                echo "Erreur lors de l\'enregistrement";
-            }
-        } else {
-            echo "Ce compte existe déjà!";
-        }
-    }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORMULAIRE D'INSCRIPTION</title>
+    <link rel="stylesheet" href="inscript.css">
+    <link rel="stylesheet" href="(link unavailable)" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
     
-    // Fermeture de la connexion
-    $stmt->close();
-    $conn->close();
-        }
 
-?>
+    <div class="container">
+        <form method="POST" action="inscript.php">
+            <h2>Inscription</h2>
+            <div class="form-group">
+                <label for="nom"><i class="fa fa-user"></i><span>Nom</span></label>
+                <input type="text" id="nom" name="nom" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Prenom</label>
+                <input type="text" id="prenom" name="prenom" required>
+            </div>
+            <div class="form-group">
+                <label for="niveau">Niveau</label>
+                <input type="text" id="niveau" name="niveau" list="suggestions" placeholder="Choisissez ou tapez une option" class="form-control" required>
+                <datalist id="suggestions">
+                    <option value="ceso">
+                    <option value="travailleur social">
+                    <option value="Delegue departemental">
+                    <option value="Delegue regional">   
+                </datalist> 
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Mot de passe</label>
+                <input type="password" id="password" name="password" required>
+                <button type="button" class="btn btn-outline-secondary" onclick="togglePasswordVisibility()">
+                    <i id="eye-icon" class="fa fa-eye-slash"></i>
+                </button>
+            </div>
+            <div class="form-group">
+                <label for="confirmer-password">Confirmer mot de passe</label>
+                <input type="password" id="confirmer-password" name="confirmer-password" required>
+            </div>
+            <button type="submit">S'inscrire</button>
+            <p>Vous avez deja un compte ?<a href="connexion.html"> Se connecter</a></p>
+        </form>
+    </div>
+            <script src="script.inscription.js"></script>
+</body>
+</html>

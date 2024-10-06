@@ -114,20 +114,18 @@ footer .text-light {
 <body>
       
 <nav class="navbar navbar-expand-lg navbar-light bg-primary">
-    <a class="navbar-brand" href="#">MINAS</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+        <img src="" alt="" style="height: 30px; margin-right: 8px;">
+        MINAS
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item active">
-          <a class="nav-link" href="interface1.html">Accueil <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="interface1.php">Accueil <span class="sr-only">(current)</span></a>
         </li>
         <li class="navbar-nav">
-          <a class="nav-link" href="a propos.html">A Propos</a>
+          <a class="nav-link" href="a propos.php">A Propos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="contact.html">Contacts</a>
+          <a class="nav-link" href="contact.php">Contacts</a>
         </li>
     </div>
   </nav>
@@ -145,6 +143,19 @@ footer .text-light {
   </header>
 
 <div class="message">
+<?php
+$message = '';  // Initialisation de la variable
+
+if (isset($_GET['message'])) {
+    if ($_GET['message'] == 'success') {
+        $message = '<div class="alert alert-success">Le signalement a été enregistré avec succès.</div>';
+        echo $message;
+    } elseif ($_GET['message'] == 'error') {
+        $message = '<div class="alert alert-danger">Erreur lors du signalement.</div>';
+        echo $message;
+    }
+}
+?>
     "Signalons ensemble les enfants victimes de sévices."
 </div>
 
@@ -160,40 +171,41 @@ footer .text-light {
                     <a href="index.html" class="navbar-brand">
                         <h1 class="m-0 text-white"><i class="fa-duotone fa-solid fa-hands-holding-child"></i>EVAS</h1>
                     </a>
+                  
+
                     <p class="mt-3 mb-4">"Protéger l'enfance, c'est notre responsabilité collective".</p>
                 </div>
             </div>
             <div class="col-lg-8 col-md-6">
-                <div class="row gx-5">
-                    <div class="col-lg-4 col-md-12 pt-5 mb-5">
-                        <h3 class="text-light mb-0">Nos contacts</h3>
-                        <div class="d-flex mb-2">
-                            <i class="bi bi-geo-alt text-primary me-2"></i>
-                            <p class="mb-0">MINAS-Poste Central, Yaoundé, CAMEROUN</p>
+                    <div class="row gx-5">
+                        <div class="col-lg-4 col-md-12 pt-5 mb-5">
+                            <h3 class="text-light mb-0">Nos contacts</h3>
+                            <div class="d-flex mb-2">
+                                <i class="bi bi-geo-alt text-primary me-2"></i>
+                                <p class="mb-0">MINAS-Poste Central, Yaoundé, CAMEROUN</p>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <i class="bi bi-envelope-open text-primary me-2"></i>
+                                <p class="mb-0">info@minas.cm</p>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <i class="bi bi-telephone text-primary me-2"></i>
+                                <p class="mb-0"></p>
+                            </div>
+                            <div class="d-flex mt-4">
+                                <a class="btn btn-primary btn-square me-2" href="https://x.com/minasofficiel"><i class="fab fa-twitter fw-normal"></i></a>
+                                <a class="btn btn-primary btn-square me-2" href="https://www.facebook.com/minasofficiel"><i class="fab fa-facebook-f fw-normal"></i></a>
+                                <a class="btn btn-primary btn-square me-2" href="https://www.linkedin.com/company/minist%C3%A8re-des-affaires-sociales-minas"><i class="fab fa-linkedin-in fw-normal"></i></a>
+                            </div>
                         </div>
-                        <div class="d-flex mb-2">
-                            <i class="bi bi-envelope-open text-primary me-2"></i>
-                            <p class="mb-0">minas@gmail.com</p>
-                        </div>
-                        <div class="d-flex mb-2">
-                            <i class="bi bi-telephone text-primary me-2"></i>
-                            <p class="mb-0">+237 345 67890</p>
-                        </div>
-                        <div class="d-flex mt-4">
-                            <a class="btn btn-primary btn-square me-2" href="#"><i class="fab fa-twitter fw-normal"></i></a>
-                            <a class="btn btn-primary btn-square me-2" href="#"><i class="fab fa-facebook-f fw-normal"></i></a>
-                            <a class="btn btn-primary btn-square me-2" href="#"><i class="fab fa-linkedin-in fw-normal"></i></a>
-                            <a class="btn btn-primary btn-square" href="#"><i class="fab fa-instagram fw-normal"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
-                        <h3 class="text-light mb-0">Nos Pages</h3>
-                        <div class="link-animated d-flex flex-column justify-content-start">
-                            <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Accueil</a>
-                            <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>A Propos</a>
-                            <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Signaler</a>
-                            <a class="text-light" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Nous contacter</a>
-                        </div>
+                        <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
+                            <h3 class="text-light mb-0">Nos Pages</h3>
+                            <div class="link-animated d-flex flex-column justify-content-start">
+                                <a class="text-light mb-2" href="index.php"><i class="bi bi-arrow-right text-primary me-2"></i>Accueil</a>
+                                <a class="text-light mb-2" href="a propos.php"><i class="bi bi-arrow-right text-primary me-2"></i>A Propos</a>
+                                <a class="text-light mb-2" href="index.php"><i class="bi bi-arrow-right text-primary me-2"></i>Signaler</a>
+                                <a class="text-light" href="contacter.php"><i class="bi bi-arrow-right text-primary me-2"></i>Nous contacter</a>
+                            </div>
                     </div>
                 </div>
             </div>

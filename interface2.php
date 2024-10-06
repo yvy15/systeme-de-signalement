@@ -174,12 +174,11 @@
             <div class="col-md-8">
                 <select class="form-control" id="lieu" name="lieu">
                     <option value="">Sélectionnez un lieu</option>
-                    <option value="parc">Mvan</option>
-                    <option value="ecole">Bastos</option>
-                    <option value="maison">Ekounou</option>
-                    <option value="bureau">Cité CIC</option>
-                    <option value="hopital">Mboppi</option>
-                    <option value="centre-commercial">Centre commercial</option>
+                    <option value="Mvan">Mvan</option>
+                    <option value="Bastos">Bastos</option>
+                    <option value="Ekounou">Ekounou</option>
+                    <option value="Cité CIC">Cité CIC</option>
+                    <option value="Mboppi">Mboppi</option>
                 </select>
             </div>
         </div>
